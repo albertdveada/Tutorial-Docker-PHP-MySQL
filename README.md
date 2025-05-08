@@ -2,102 +2,104 @@
   <img src="https://www.docker.com/wp-content/uploads/2022/03/vertical-logo-monochromatic.png" alt="Docker Logo" width="250">
 </p>
 
-# Menjalankan Docker untuk PHP & MySQL (Versi 8.3)
+**[ [🇮🇩 INDONESIAN LANGUAGE VERSION](https://translate.google.com/translate?hl=&sl=en&tl=id&u=https://github.com/albertdveada/Tutorial-Docker-PHP-MySQL) ]**
 
-Repository ini menyediakan template sederhana untuk menjalankan aplikasi PHP dan MySQL menggunakan Docker. Cocok untuk pemula maupun pengembang yang membutuhkan setup lingkungan pengembangan yang cepat, terisolasi, dan konsisten.
+# Running Docker for PHP & MySQL (Version 8.3)
 
----
-
-## ✨ Fitur Utama
-
-- **Isolasi**: Menghindari konflik versi PHP/MySQL di host.
-- **Portabilitas**: Bisa dijalankan di berbagai OS tanpa konfigurasi ulang.
-- **Deploy Cepat**: Setup lingkungan hanya dengan satu perintah.
-- **Skalabilitas**: Mudah dikembangkan untuk kebutuhan produksi.
+This repository provides a simple template to run a PHP and MySQL application using Docker. Ideal for beginners or developers who need a fast, isolated, and consistent development environment.
 
 ---
 
-## 🚀 Langkah-langkah Penggunaan
+## ✨ Key Features
+
+- **Isolation**: Avoid PHP/MySQL version conflicts on your host system.
+- **Portability**: Works across multiple operating systems without reconfiguration.
+- **Quick Deployment**: Set up your development environment with a single command.
+- **Scalability**: Easily extendable for production use.
+
+---
+
+## 🚀 Usage Steps
 
 ### 1. Instalasi Docker
 
 - **Download Docker Desktop**:  
   👉 [Download Docker](https://www.docker.com/products/docker-desktop)  
-- **Panduan Penggunaan**:  
+- **User Guide**:  
   👉 [Docker Documentation](https://docs.docker.com/get-started)  
 - **Windows Users**:  
-  Pastikan sudah mengaktifkan [WSL (Windows Subsystem for Linux)](https://learn.microsoft.com/en-us/windows/wsl/install)
+  Make sure [WSL (Windows Subsystem for Linux)](https://learn.microsoft.com/en-us/windows/wsl/install) is enabled.
 
 ---
 
-### 2. Clone Repository & Jalankan Proyek
+### 2. Clone Repository & Run the Project
 
-**Repository ini menyediakan konfigurasi dasar untuk menjalankan aplikasi PHP dan MySQL menggunakan Docker.**
+**This repository contains basic configuration for running a PHP and MySQL application using Docker.**
 
-1. **Clone repository**:
+1. **Clone the repository**:
    ```bash
    git clone https://github.com/albertdveada/Tutorial-Docker-PHP-MySQL.git
    
-2. **Masuk ke direktori project**:
+2. **Enter the project directory**:
    ```bash
    cd Tutorial-Docker-PHP-MySQL
    
-3. **Jalankan Docker Compose**:
-    Jalankan Docker Compose untuk memulai container di background.
+3. **Start Docker Compose**:
+    Run Docker Compose to start the containers in the background.
    ```bash
    docker-compose up -d
    
-3. **Akses Aplikasi di Browser**:
+3. **Access the Application in Your Browser**:
 
-   Setelah container berjalan, Anda dapat mengakses layanan berikut:
-   - 🔗 [Buka Aplikasi PHP (localhost:8080)](http://localhost:8080)  
-   - 🔗 [Buka phpMyAdmin (localhost:8181)](http://localhost:8181)
+   Once the containers are up, you can access the services at:
+   - 🔗 [ Open PHP App (localhost:8080) ](http://localhost:8080)  
+   - 🔗 [ Open phpMyAdmin (localhost:8181) ](http://localhost:8181)
    
    
-      > 💡 **Default Akses phpMyAdmin:**
+      > 💡 **phpMyAdmin Default Login:**
       > - **Server**: `database`
       > - **Username**: `root`
       > - **Password**: `root_password`
 
 ---
 
-### 3. Mengelola Container
+### 3. Manage Containers
 
-Gunakan perintah berikut untuk mengelola lifecycle container Docker Anda:
+Use the following commands to manage your Docker container lifecycle:
 
-- **Stop container**:
+- **Stop containers**:
   ```bash
   docker-compose stop
-- **Start ulang container:**:
+- **Restart containers**:
   ```bash
   docker-compose start
-- **Hapus container, jaringan, volume (jika perlu reset):**:
+- **Remove containers, networks, volumes (for reset)**:
   ```bash
   docker-compose down -v
 
 ---
 
-## ⚠️ Catatan Versi MySQL
+## ⚠️ MySQL Version Notes
 
-- **MySQL 8.1+**: Gunakan `caching_sha2_password`, **(default).** Tidak perlu konfigurasi tambahan.
-- **MySQL 8.0 atau lebih lama**: Gunakan `mysql_native_password`. Aktifkan baris berikut di file `docker-compose.yml`:
+- **MySQL 8.1+**: Uses `caching_sha2_password`, **by default.** no additional config needed.
+- **MySQL 8.0 or earlier**: Use `mysql_native_password`. Uncomment the following line in `docker-compose.yml`:
   
   ```bash
   command: --default-authentication-plugin=mysql_native_password
 
-## 📁 Struktur File:
+## 📁 File Structure:
     📦 Tutorial-Docker-PHP-MySQL/
     ├── docker-compose.yml
     ├── index.php
     └── README.md
     
-🔎 **Penjelasan Singkat:**
-  - `docker-compose.yml`: Berisi pengaturan semua container yang akan dijalankan (PHP, database, phpMyAdmin).
-  - `index.php`: File contoh aplikasi PHP yang bisa langsung diuji di browser.
-  - `README.md`: Panduan lengkap tentang cara setup, menjalankan, dan mengelola proyek ini.
+🔎 **Quick Overview:**
+  - `docker-compose.yml`: Defines all services (PHP, MySQL, phpMyAdmin).
+  - `index.php`: Example PHP app you can test in the browser.
+  - `README.md`: Full setup and usage guide for this project.
 
-💡 Kamu bisa menambahkan folder seperti `src/`, `config/`, atau `public/` jika proyek makin berkembang.
+💡 You can add folders like `src/`, `config/`, or `public/` as your project grows.
 
 ---
-Pastikan konfigurasi sesuai dengan versi MySQL Anda. Untuk bantuan lebih lanjut, kunjungi dokumentasi resmi Docker atau MySQL.
-Semoga tutorial ini bermanfaat! 😊
+Make sure your configuration matches the MySQL version you’re using. For more help, refer to the official Docker or MySQL documentation.
+Hope this tutorial helps! 😊
